@@ -159,10 +159,10 @@ while seguir_jugando.lower() == "si":
     print('Puntuación final:', user_name, '=>', user_score, 'CPU =>', computer_score)
     rounds += 1
     
-    if computer_score == 5:
+    if computer_score == 3:
       print('CPU WINS')
       break
   
-    elif user_score == 5:
+    elif user_score == 3:
       print('YOU WIN')
       break
