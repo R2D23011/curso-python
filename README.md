@@ -11,10 +11,10 @@ python3 main.py
 
 Para poder usar el proyecto y contribuir en el utilizar los siguientes comandos
 
-'''sh
+```sh
 git clone
 cd app
 source env/bin/activate
 pip3 install -r requirements.txt
 python3 main.py
-'''
+```
