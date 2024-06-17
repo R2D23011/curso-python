@@ -1,10 +1,12 @@
 import utils
 import read_csv
 import charts
+import pandas as pd
 
 def run():
   Opciones = ('Asia', 'Africa', 'North America', 'South America', 'Europe', 'Oceania')
-  data = read_csv.read_csv('data.csv')
+  df = pd.read_csv('data.csv')
+  # data = read_csv.read_csv('data.csv')
   
   
   El_print= input('Elige una opción (World o Country) => ').lower()
@@ -12,15 +14,20 @@ def run():
   
   if El_print == 'world':
 
-    print('Asia, Africa, North America, South America, Europe, Aceania')
+    print('Asia, Africa, North America, South America, Europe, Oceania')
     Continente = input('Ingrese el continente =>').title()
 
     if Continente in Opciones:
-      data = list(filter(lambda item: item['Continent'] == Continente, data))
+      # data = list(filter(lambda item: item['Continent'] == Continente, data))
+      df = df[df['Continent'] == Continente]
     else:
       print('No se encuentra el continente, se imprimira la poblacion mundial')
-    countries = list(map(lambda x: x['Country/Territory'], data))
-    percentages = list(map(lambda x: x['World Population Percentage'], data))
+    #countries = list(map(lambda x: x['Country/Territory'], data))
+    countries = df['Country/Territory'].values
+
+    #percentages = list(map(lambda x: x['World Population Percentage'], data))
+    percentages = df['World Population Percentage'].values
+
     charts.generate_pie_chart(Continente, countries, percentages)
     
 
